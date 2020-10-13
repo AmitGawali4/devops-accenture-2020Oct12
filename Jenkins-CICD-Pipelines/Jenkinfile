@@ -2,7 +2,6 @@ node {
     
 git branch: 'main', url: 'https://github.com/amitvashisttech/devops-accenture-2020Oct12.git'
 
-mvn clean -f 02-Jenkins/petclinic-code/pom.xml
-
+sh 'mvn clean -f 02-Jenkins/petclinic-code/pom.xml'
 
 }

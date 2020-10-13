@@ -10,7 +10,7 @@ sh 'mvn clean -f 02-Jenkins/petclinic-code/pom.xml'
 }
 
 stage('Maven Compiling') {    
-sh 'mvn compile -f 02-Jenkins/petclinic-code/pom.xml'
+sh 'mvn compiles -f 02-Jenkins/petclinic-code/pom.xml'
 }
 
 stage('Maven Testing') {    

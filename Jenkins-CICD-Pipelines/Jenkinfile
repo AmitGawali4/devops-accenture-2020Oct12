@@ -2,6 +2,8 @@ node {
 
 notify('Started')
 
+try {
+
 stage('Git CheckOut') {    
 git branch: 'main', url: 'https://github.com/amitvashisttech/devops-accenture-2020Oct12.git'
 }
@@ -33,9 +35,12 @@ stage('Deploy Petclinic Code into Docker Env.') {
 sh 'docker-compose up -d --build'
 }
 
-}
 
 notify('Done')
+} catch(err){
+  notify("Error ${err}")
+  currentBuild.result = 'FAILURE'
+}
 }
 
 

@@ -35,12 +35,15 @@ stage('Deploy Petclinic Code into Docker Env.') {
 sh 'docker-compose up -d --build'
 }
 
+}
 
 notify('Done')
 } catch(err){
   notify("Error ${err}")
   currentBuild.result = 'FAILURE'
 }
+
+
 }
 
 

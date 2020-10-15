@@ -10,7 +10,7 @@ def project_path = "02-Jenkins/petclinic-code"
 dir(project_path) {
 
 stage('Maven Clean') {    
-sh 'mvn cleans'
+sh 'mvn clean'
 }
 
 stage('Maven Compiling') {    

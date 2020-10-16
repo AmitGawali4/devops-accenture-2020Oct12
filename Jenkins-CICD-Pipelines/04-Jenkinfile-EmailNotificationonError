@@ -35,21 +35,6 @@ stage('Deploy Petclinic Code into Docker Env.') {
 sh 'docker-compose up -d --build'
 }
 
-
-stage('Getting Ready for Ansible') {
-sh 'cp -rf target/*.war ../../04-Ansible/07-Roles/Roles/tomcat/files/petclinic.war'
-sh "echo '<h1> Jenkins Job Petclinic BUILD ID: ${env.BUILD_DISPLAY_NAME}</h1>' > 04-Ansible/07-Roles/Roles/tomcat/files/jenkins.html"
-}
-
-stage('Deploy to PROD') {
-def project_path_1="../../04-Ansible/07-Roles"
-dir(project_path_1){
-   sh 'ansible-playbook Playbooks/tomcat.yaml'
-}
-
-}
-
-
 }
 
 notify('Done')
